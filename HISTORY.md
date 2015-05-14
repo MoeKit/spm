@@ -2,6 +2,11 @@
 
 ---
 
+## 3.6.1
+
+- example中按钮可以使用 `demo-btn`的类名以获取更统一简洁的样式
+- 文档中的`require('name')`自动转成实际调用的写法 `require('name/version/main')`
+
 ## 3.6.0
 
 - refactor build with webpack
