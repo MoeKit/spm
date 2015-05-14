@@ -106,6 +106,18 @@
         document.getElementById('qrcode').appendChild(el);
       });
     }, false);
+    ready(function(){
+      var packageName = '{{config.package.name|title}}'.toLowerCase();
+      var main = '{{config.package.spm.main}}'.replace('.js','');
+      var list = document.querySelectorAll('span.string');
+      for(var i=0;i<list.length;i++){
+        var one = list[i];
+        var text = one.innerText;
+        if(text==='\''+packageName+'\''){
+          one.innerText = '\''+packageName+'/{{config.package.version}}/'+main+'\''
+        }
+      }
+    });
   })();
   </script>
 </html>

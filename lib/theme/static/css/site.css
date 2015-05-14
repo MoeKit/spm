@@ -523,3 +523,21 @@ body.spmjs {
     position: relative;
   }
 }
+
+
+.demo-btn {
+  border:1px solid #ed6e84;
+  padding:5px 0;
+  text-align:center;
+  width:100%;
+  display:inline-block;
+  border:1px solid #ed6e84;
+  border-radius:3px;
+  background-color:#ed6e84;
+  color:#fff;
+  margin:15px 0;
+}
+
+.spmjs a.demo-btn {
+  color:#fff;
+}

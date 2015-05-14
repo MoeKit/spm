@@ -1,6 +1,6 @@
 {
-  "name": "spm",
-  "version": "3.6.0",
+  "name": "moekit",
+  "version": "3.6.1",
   "preferGlobal": "true",
   "description": "Static Package Manager",
   "author": "Hsiaoming Yang <me@lepture.com>",
@@ -75,7 +75,7 @@
     "sinon": "~1.12.1"
   },
   "bin": {
-    "spm": "bin/spm"
+    "moekit": "bin/spm"
   },
   "engines": {
     "node": ">=0.10.0"
