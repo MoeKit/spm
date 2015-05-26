@@ -22,6 +22,7 @@ program
   .option('build', 'build documentation')
   .option('watch', 'start a server of watching source')
   .option('server', 'start a server for documentation')
+  .option('upload', 'upload documentation to local server')
   .option('publish', 'publish documentation for public');
 
 program.on('--help', function() {
