@@ -2,6 +2,10 @@
 
 ---
 
+## 3.6.3
+
+- 模块名字首字母不大写
+
 ## 3.6.2
 
 - 增加`moekit doc upload`功能，可以同步文档到内部服务器。需要先使用 `moekit config set scp.server 设置地址`。内网使用的路径为`用户名:用户密码@40机子:/home/bozhong/code/moekit/`
