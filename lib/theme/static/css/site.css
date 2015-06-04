@@ -131,6 +131,9 @@ body.spmjs {
   color: #6c97c2;
   text-decoration: none;
 }
+.spmjs .sidebar-wrapper h1 a{
+  text-transform: lowercase;
+}
 .spmjs .sidebar-wrapper a:hover {
   color: #48b;
 }
