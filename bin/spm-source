@@ -1,0 +1,100 @@
+#!/usr/bin/env node
+
+require('colorful').colorful();
+
+var program = require('commander');
+var spmrc = require('spmrc');
+var spawn = require('win-spawn');
+var exists = require('fs').existsSync;
+var readFile = require('fs').readFileSync;
+var spmrc = require('spmrc');
+var log = require('spm-log');
+var fs = require('fs-extra');
+var path = require('path');
+var _fs = require('fs');
+
+program
+  .usage('<command> [key]');
+
+program
+  .option('publish', '发布构建后的文件到source版本库');
+
+program.on('--help', function() {
+  var dir = spmrc.get('source.dir');
+  if (!dir) {
+    console.log('  需要先配置source.dir:moekit config set source.dir 目录'.to.bold.yellow.color);
+  }
+
+  console.log();
+});
+
+program.parse(process.argv);
+
+var val = program.args[0];
+
+if (program.publish) {
+  var dir = spmrc.get('source.dir');
+  if (!dir) {
+    log.info('错误', '需要先配置source目录：moekit config set source.dir 目录'.to.bold.yellow.color);
+  } else {
+    log.info('准备', '检查发布文件');
+    var path = require('path');
+    var packageDir = path.resolve(process.cwd(), 'package.json');
+    var package = require(packageDir);
+    log.info('版本', package.version);
+    var copyDir = path.resolve(process.cwd(), 'dist', package.name, package.version);
+    try {
+      var isDir = _fs.lstatSync(copyDir).isDirectory();
+    } catch (e) {
+      return log.error('错误', '构建文件不存在哦,请使用spm-sea进行构建');
+    }
+    var files = getFiles(copyDir);
+    log.info('文件', '共' + files.length + '个');
+    files.forEach(function(one) {
+      log.info('文件', one);
+    });
+
+    var spawn = require('child_process').spawn,
+      ls = spawn('hg', ['branch'], {
+        cwd: spmrc.get('source.dir')
+      });
+
+    var toDir = path.resolve(dir, 'moe', package.name, package.version);
+    ls.stdout.on('data', function(data) {
+      if (data && data != '') {
+        log.info('分支', data.toString().to.bold.yellow.color);
+        try {
+          var isDir = _fs.lstatSync(toDir).isDirectory();
+          log.info('文件', '该版本模块已经存在，执行覆盖');
+        } catch (e) {
+          log.info('文件', '未有该版本模块，执行复制');
+        }
+
+        fs.copy(copyDir, toDir, function(err) {
+          if (err) return log.error('出错', err)
+          log.info('成功', '记得提交到版本库哦~'.to.bold.yellow.color);
+        }) // copies file
+      }
+
+
+    });
+
+  }
+} else {
+  program.help();
+}
+
+
+function getFiles(dir, files_) {
+  files_ = files_ || [];
+  var files = fs.readdirSync(dir);
+  for (var i in files) {
+    var name = dir + '/' + files[i];
+    if (fs.statSync(name).isDirectory()) {
+      getFiles(name, files_);
+    } else {
+      files_.push(name.split('/')[name.split('/').length - 1]);
+    }
+  }
+  return files_;
+}

@@ -1,6 +1,6 @@
 {
   "name": "moekit",
-  "version": "3.6.3",
+  "version": "3.6.4",
   "preferGlobal": "true",
   "description": "Static Package Manager",
   "author": "Hsiaoming Yang <me@lepture.com>",
@@ -35,7 +35,7 @@
     "exeq": "~2.0.0",
     "extend": "~2.0.0",
     "father": "~1.0.0",
-    "fs-extra": "~0.13.0",
+    "fs-extra": "^0.13.0",
     "fs-symlink": "1.1.0",
     "fstream": "~1.0.3",
     "fstream-ignore": "~1.0.2",
@@ -76,6 +76,7 @@
     "sinon": "~1.12.1"
   },
   "bin": {
+    "mk": "bin/spm",
     "moekit": "bin/spm"
   },
   "engines": {
