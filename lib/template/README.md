@@ -7,7 +7,7 @@
 ## Install
 
 ```
-$ spm install <%= name %> --save
+$ mk install <%= name %> --save
 ```
 
 ## Usage
