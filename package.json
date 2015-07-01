@@ -1,6 +1,6 @@
 {
   "name": "moekit",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "preferGlobal": "true",
   "description": "Static Package Manager",
   "author": "Hsiaoming Yang <me@lepture.com>",
@@ -56,6 +56,7 @@
     "semver": "~4.1.0",
     "spm-client": "~0.4.0",
     "spm-log": "~0.1.1",
+    "spm-sea": "^1.0.1",
     "spm-webpack": "~0.3.0",
     "spm-webpack-server": "~0.3.0",
     "spmrc": "~1.2.0",

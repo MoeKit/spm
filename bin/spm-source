@@ -81,7 +81,17 @@ if (program.publish) {
 
   }
 } else {
-  program.help();
+  // 直接构建
+  var dir = spmrc.get('source.dir');
+  if (!dir) {
+    log.info('错误', '需要先配置source目录：moekit config set source.dir 目录'.to.bold.yellow.color);
+  } else {
+    var moekit = path.resolve(spmrc.get('source.dir'),'moe');
+    require('../lib/build-seajs').build(moekit, function() {
+      log.info('finish','记得提交到版本库哦');
+    });
+  }
+
 }
 
 
