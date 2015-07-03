@@ -76,6 +76,9 @@
       </div>
       {%- endblock %}
     </div>
+    <div class="bottom-tools">
+        <a href="javascript:" id="refresh">刷</a>
+    </div>
   </body>
   <script src="{{static_url('js/nprogress.js')}}?nowrap"></script>
   <script>
@@ -117,6 +120,12 @@
           one.innerText = '\''+packageName+'/{{config.package.version}}/'+main+'\''
         }
       }
+    });
+    // refresh
+    ready(function(){
+      document.getElementById('refresh').addEventListener('click',function(){
+        location.href=location.pathname+'?v='+(new Date().getTime());
+      });
     });
   })();
   </script>

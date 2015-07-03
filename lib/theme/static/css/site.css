@@ -500,6 +500,25 @@ body.spmjs {
   }
 }
 
+.bottom-tools {
+  display:none;
+  z-index:999;
+  position:fixed;
+  right:15px;
+  bottom:10px;
+}
+
+#refresh {
+  width:50px;
+  height:50px;
+  display:block;
+  border-radius:50%;
+  background-color:#ed6e84;
+  color:#fff;
+  text-align:center;
+  line-height:50px;
+}
+
 /* responsive */
 @media (max-width: 980px) {
   .spmjs .body-wrapper,
@@ -524,6 +543,9 @@ body.spmjs {
   }
   body.spmjs {
     position: relative;
+  }
+  .bottom-tools {
+    display:block;
   }
 }
 
