@@ -2,9 +2,17 @@
 
 ---
 
-## 3.6.6(未发布)
+## 3.6.6
 
 - 手机页面添加刷新按钮方便调试
+- refactor(doc): fix lot's of problems, support html and iframe
+- deps: upgrade spm-webpack and spm-webpack-server to 0.5.0
+- feat(doc): don't copy _site, node_modules and spm_modules folder
+- deps: upgrade spm-webpack and spm-webpack-server to 0.4.0
+- feat: support force publish package with republish property
+- fix(doc): get md not only in examples
+- fix(doc): add source-map for test file build
+- deps: upgrade father to 1.0
 
 ## 3.6.5
 
