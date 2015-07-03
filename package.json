@@ -1,6 +1,6 @@
 {
   "name": "moekit",
-  "version": "3.6.5",
+  "version": "3.6.6",
   "preferGlobal": "true",
   "description": "Static Package Manager",
   "author": "Hsiaoming Yang <me@lepture.com>",
