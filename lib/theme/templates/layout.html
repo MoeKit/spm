@@ -116,7 +116,7 @@
       for(var i=0;i<list.length;i++){
         var one = list[i];
         var text = one.innerText;
-        if(text==='\''+packageName+'\''){
+        if(text==='\''+packageName+'\'' && /require/.test(one.previousSibling.nodeValue)){
           one.innerText = '\''+packageName+'/{{config.package.version}}/'+main+'\''
         }
       }

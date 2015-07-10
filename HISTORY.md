@@ -2,6 +2,10 @@
 
 ---
 
+## 3.6.7(not publish yet)
+
+- fix module name problem
+
 ## 3.6.6
 
 - 手机页面添加刷新按钮方便调试
